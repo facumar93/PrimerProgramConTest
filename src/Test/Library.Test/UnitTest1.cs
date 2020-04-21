@@ -10,11 +10,21 @@ namespace Prog2_18_04_PrimerProgramConTest.Library
         }
 
         [Test]
-        public void Test1()
+        public void Test1() // comprueba que se esté impidiendo que ingresen fechas inválidas.
         {
-            const string expected = "2020-04-18";
-            ChangeFormat dateTest = new ChangeFormat("18/04/2020");
-            Assert.AreEqual(expected, dateTest.FSlachToDash());
+            bool expected = true;
+            CheckDateExist toDate = new CheckDateExist("10/11/1977");
+            Assert.AreEqual(expected, toDate.CheckExist());
+        }
+         [Test]
+        public void Test2()
+        {
+            string expected = "10-11-1977";
+            string resultado;
+            CheckDateExist toDate1 = new CheckDateExist("10/11/1977");
+            ChangeFormat date = new ChangeFormat(toDate1);
+            
+            Assert.AreEqual(expected,date.FSlashToDash());
         }
     }
 }

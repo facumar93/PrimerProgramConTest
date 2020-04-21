@@ -5,16 +5,24 @@ namespace Prog2_18_04_PrimerProgramConTest.Library
 {
     public class ChangeFormat
     {
-        public ChangeFormat(string input)
+        
+        public ChangeFormat(CheckDateExist date)
         {
-            this.GetSetInput = input;
+            this.Date = date;
             
         }
-        public string GetSetInput { get; set; }
-        public string FSlachToDash()
+        public CheckDateExist Date { get; set; }
+        
+        public string FSlashToDash()
         {
             string result = "";
-            result = GetSetInput.Substring(6) + " " + GetSetInput.Substring(3,2) + "-" + GetSetInput.Substring(0,2);
+            result = this.Date.ToDate.Substring(6) + " " + this.Date.ToDate.Substring(3,2) + "-" + this.Date.ToDate.Substring(0,2);
+            return result;
+        }
+        public string ChangeOrder()
+        {
+            string result = "";
+            result =  this.Date.ToDate.Substring(0,2) + "/" + this.Date.ToDate.Substring(6) + "/" + this.Date.ToDate.Substring(3,2);
             return result;
         }
 
